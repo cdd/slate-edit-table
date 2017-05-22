@@ -36,5 +36,6 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
-dist
+# building for github install
+#dist
 example/bundle.js
