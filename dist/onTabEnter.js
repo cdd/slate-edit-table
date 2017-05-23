@@ -19,13 +19,13 @@ function selectAllText(transform) {
  * Pressing "Tab" or "Enter" moves the cursor to the next cell
  * and select the whole text
  */
-function onTab(event, data, state, opts) {
+function onTabEnter(event, data, state, opts) {
     event.preventDefault();
     var transform = state.transform();
     var dx = 0;
     var dy = 0;
 
-    if (data.isTab) {
+    if (data.key === 'tab') {
         dx = data.isShift ? -1 : 1;
     } else {
         dy = data.isShift ? -1 : 1;
@@ -38,4 +38,4 @@ function onTab(event, data, state, opts) {
     return selectAllText(transform).apply();
 }
 
-module.exports = onTab;
+module.exports = onTabEnter;
