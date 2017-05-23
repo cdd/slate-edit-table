@@ -13,8 +13,7 @@ var moveSelectionBy = require('./transforms/moveSelectionBy');
 var setColumnAlign = require('./transforms/setColumnAlign');
 var setColumnWidth = require('./transforms/setColumnWidth');
 
-var onEnter = require('./onEnter');
-var onTab = require('./onTab');
+var onTabEnter = require('./onTabEnter');
 var onBackspace = require('./onBackspace');
 var onUpDown = require('./onUpDown');
 var ALIGN = require('./ALIGN');
