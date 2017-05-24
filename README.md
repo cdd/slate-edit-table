@@ -183,6 +183,8 @@ True if on first column
 
 True if on last column
 
+Bug reports and pull requests are welcome on GitHub at https://github.com/cdd/slate-simple-table
+
 [![NPM version](https://badge.fury.io/js/slate-simple-table.svg)](http://badge.fury.io/js/slate-simple-table)
 [![Linux Build Status](https://travis-ci.org/cdd/slate-simple-table.png?branch=master)](https://travis-ci.org/cdd/slate-simple-table)
 
