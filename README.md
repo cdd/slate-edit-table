@@ -1,7 +1,7 @@
-# slate-table-simple
+# slate-simple-table
 
-[![NPM version](https://badge.fury.io/js/slate-table-simple.svg)](http://badge.fury.io/js/slate-table-simple)
-[![Linux Build Status](https://travis-ci.org/cdd/slate-table-simple.png?branch=master)](https://travis-ci.org/GitbookIO/slate-table-simple)
+[![NPM version](https://badge.fury.io/js/slate-simple-table.svg)](http://badge.fury.io/js/slate-simple-table)
+[![Linux Build Status](https://travis-ci.org/cdd/slate-simple-table.png?branch=master)](https://travis-ci.org/cdd/slate-simple-table)
 
 A Slate plugin to handle a simple table.
 
@@ -10,7 +10,7 @@ Demo: [gitbookio.github.io/slate-edit-table/](https://gitbookio.github.io/slate-
 ### Install
 
 ```
-npm install slate-table-simple
+npm install slate-simple-table
 ```
 
 ### Features
@@ -24,10 +24,10 @@ npm install slate-table-simple
 ### Simple Usage
 
 ```js
-import EditTable from 'slate-table-simple'
+import SimpleTable from 'slate-simple-table'
 
 const plugins = [
-  EditTable()
+  SimpleTable()
 ]
 ```
 
@@ -40,7 +40,7 @@ const plugins = [
 
 ### Utilities and Change
 
-`slate-table-simple` exports utilities and transforms:
+`slate-simple-table` exports utilities and transforms:
 
 #### `utils.isSelectionInTable`
 
