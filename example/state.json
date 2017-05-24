@@ -22,7 +22,7 @@
                     "kind": "text",
                     "ranges": [
                         {
-                            "text": "This page is a basic example of Slate + slate-table-simple plugin."
+                            "text": "This page is a basic example of Slate + slate-simple-table plugin."
                         }
                     ]
                 }
