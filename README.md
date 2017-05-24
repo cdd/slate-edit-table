@@ -38,78 +38,94 @@ const plugins = [
 
 ### Utilities and Change
 
-`slate-simple-table` exports utilities and transforms:
+`slate-simple-table` exports utilities and changes:
 
 #### `utils.isSelectionInTable`
 
-`plugin.utils.isSelectionInTable(state: State) => boolean`
+```
+plugin.utils.isSelectionInTable(state: State) => Boolean
+```
 
 Return true if selection is inside a table cell.
 
 #### `utils.getPosition`
 
-`plugin.utils.getPosition(state: State) => TablePosition`
-
-Returns the detailed position in the current table. Throws if not in a table.
-
-#### `changes.insertTable`
-
-`plugin.changes.insertTable(change: Change, columns: ?number, rows: ?number) => Change`
+```
+plugin.changes.insertTable(change: Change, columns: Number?, rows: Number?) => Change
+```
 
 Insert a new empty table.
 
 #### `changes.insertRow`
 
-`plugin.changes.insertRow(change: Change, at: ?number) => Change`
+```
+plugin.changes.insertRow(change: Change, at: Number?) => Change
+```
 
 Insert a new row after the current one or at the specific index (`at`).
 
 #### `changes.insertColumn`
 
-`plugin.changes.insertColumn(change: Change, at: ?number) => Change`
+```
+plugin.changes.insertColumn(change: Change, at: Number?) => Change
+```
 
 Insert a new column after the current one or at the specific index (`at`).
 
 #### `changes.removeTable`
 
-`plugin.changes.removeTable(change: Change) => Change`
+```
+plugin.changes.removeTable(change: Change) => Change
+```
 
 Remove current table.
 
 #### `changes.removeRow`
 
-`plugin.changes.removeRow(change: Change, at: ?number) => Change`
+```
+plugin.changes.removeRow(change: Change, at: Number?) => Change
+```
 
 Remove current row or the one at a specific index (`at`).
 
 #### `changes.removeColumn`
 
-`plugin.changes.removeColumn(change: Change, at: ?number) => Change`
+```
+plugin.changes.removeColumn(change: Change, at: Number?) => Change
+```
 
 Remove current column or the one at a specific index (`at`).
 
 #### `changes.moveSelection`
 
-`plugin.changes.moveSelection(change: Change, column: number, row: number) => Change`
+```
+plugin.changes.moveSelection(change: Change, column: Number, row: Number) => Change
+```
 
 Move the selection to a specific position in the table.
 
 #### `changes.moveSelectionBy`
 
-`plugin.changes.moveSelectionBy(change: Change, column: number, row: number) => Change`
+```
+plugin.changes.moveSelectionBy(change: Change, column: Number, row: Number) => Change
+```
 
 Move the selection by the given amount of columns and rows.
 
 #### `changes.setColumnAlign`
 
-`plugin.changes.setColumnAlign(change: Change, align: string, at: number) => Change`
+```
+plugin.changes.setColumnAlign(change: Change, align: String, at: Number) => Change
+```
 
 Sets column alignment for a given column (`at`), in the current table. `align`
 defaults to center, `at` is optional and defaults to current cursor position.
 
 #### `changes.setColumnWidth`
 
-`plugin.changes.setColumnWidth(change: Change, width: Number, at: Number) => Change`
+```
+plugin.changes.setColumnWidth(change: Change, width: Number, at: Number) => Change
+```
 
 Sets column width for a given column (`at`), in the current table. `width` has a
 configurable minimum of 5. `at` is optional and defaults to current cursor position.
