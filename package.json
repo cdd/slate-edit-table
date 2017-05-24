@@ -1,7 +1,7 @@
 {
   "name": "slate-simple-table",
   "description": "A Slate plugin to handle simple tables.",
-  "version": "0.10.1-beta",
+  "version": "0.10.1",
   "license": "Apache-2.0",
   "repository": "git://github.com/cdd/slate-simple-table.git",
   "main": "./dist/index.js",
