@@ -106,3 +106,7 @@ defaults to center, `at` is optional and defaults to current cursor position.
 
 Sets column width for a given column (`at`), in the current table. `width` has a
 configurable minimum of 5. `at` is optional and defaults to current cursor position.
+
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/cdd/rspec-multiprocess_runner.
