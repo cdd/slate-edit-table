@@ -3,51 +3,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## Unreleased
+## [0.10.1] - 2017-05-24
+  [0.10.1]: https://github.com/cdd/slate-simple-table/compare/0.9.0...0.10.1
 
-## [0.13.1] - 2017-12-05
+- renamed repo to `slate-simple-table`
+- **BREAKING** changes to hotkeys, enter and tab no longer insert new rows or
+  columns
+- Added transform `setColumnWidth` and added width data to the table
+- Fixed a selection bug in `insertColumn`
 
-- Improve `isSelectionInTable` to check for both end of the selection to be in the same table.
-
-## [0.13.0] - 2017-11-22
-
-**BREAKING**
-
-- Upgrade to be compatible with Slate 0.30.x
-
-## [0.12.0] - 2017-11-02
-
-**BREAKING**
-
-- Upgrade to be compatible with Slate 0.27.x
-
-## [0.11.0] - 2017-09-20
-
-**BREAKING**
-
-- Upgrade to be compatible with Slate after the `expose-transform` branch went in.
-- Change all instances of `transform` to `change`
-- Change the namespace of `plugin.transforms` to `plugin.changes`
-
-## [0.10.2] - 2017-09-20
-
-- New `utils.getPosition(state) => TablePosition` to know easily the current
-  position within a table (#39)
-- New option `exitBlockType`. When provided, `Mod+Enter` will exit the current
-  table into a new block of this type.
-- Fixed cursor issues when inserting rows using Tab (#26)
-
-## [0.10.1] - 2017-07-13
-  [0.10.1]: https://github.com/GitbookIO/slate-edit-table/compare/0.10.0...0.10.1
-
-- Fix rule to prevent extra blocks in rows
-
-## [0.10.0] - 2017-07-13
-  [0.10.0]: https://github.com/GitbookIO/slate-edit-table/compare/0.9.0...0.10.0
-
-- Add rule to prevent nested blocks in cells
-
-## [0.9.0] - 2017-04-21
+## [0.9.0] - 2016-04-21
   [0.9.0]: https://github.com/GitbookIO/slate-edit-table/compare/0.8.4...0.9.0
 
 - Update slate to `^0.19.x`
