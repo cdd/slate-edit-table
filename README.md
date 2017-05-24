@@ -1,30 +1,30 @@
-# slate-edit-table
+# slate-table-simple
 
-[![NPM version](https://badge.fury.io/js/slate-edit-table.svg)](http://badge.fury.io/js/slate-edit-table)
-[![Linux Build Status](https://travis-ci.org/GitbookIO/slate-edit-table.png?branch=master)](https://travis-ci.org/GitbookIO/slate-edit-table)
+[![NPM version](https://badge.fury.io/js/slate-table-simple.svg)](http://badge.fury.io/js/slate-table-simple)
+[![Linux Build Status](https://travis-ci.org/cdd/slate-table-simple.png?branch=master)](https://travis-ci.org/GitbookIO/slate-table-simple)
 
-A Slate plugin to handle table edition.
+A Slate plugin to handle a simple table.
 
 Demo: [gitbookio.github.io/slate-edit-table/](https://gitbookio.github.io/slate-edit-table/)
 
 ### Install
 
 ```
-npm install slate-edit-table
+npm install slate-table-simple
 ```
 
 ### Features
 
 - Pressing <kbd>Up</kbd> and <kbd>Down</kbd>, move the cursor to next/previous row
-- Pressing <kbd>Enter</kbd>, insert a new row
-- Pressing <kbd>Cmd+Enter</kbd> (<kbd>Ctrl+Enter</kbd> on Windows/Linux) exits the table, into a new default block.
 - Pressing <kbd>Tab</kbd>, move the select to next cell
 - Pressing <kbd>Shift+Tab</kbd>, move the select to previous cell
+- Pressing <kbd>Enter</kbd>, move the select to the cell below
+- Pressing <kbd>Shift+Enter</kbd>, move the select to the cell above
 
 ### Simple Usage
 
 ```js
-import EditTable from 'slate-edit-table'
+import EditTable from 'slate-table-simple'
 
 const plugins = [
   EditTable()
@@ -40,7 +40,7 @@ const plugins = [
 
 ### Utilities and Change
 
-`slate-edit-table` exports utilities and changes:
+`slate-table-simple` exports utilities and transforms:
 
 #### `utils.isSelectionInTable`
 
@@ -115,9 +115,12 @@ Move the selection by the given amount of columns and rows.
 Sets column alignment for a given column (`at`), in the current table. `align`
 defaults to center, `at` is optional and defaults to current cursor position.
 
-> The `align` values are stored in the table node's data.
-> `table.node.data.get('align')` should be an array of aligns string, corresponding to
-each column.
+#### `changes.setColumnWidth`
+
+`plugin.changes.setColumnWidth(change: Change, width: Number, at: Number) => Change`
+
+Sets column width for a given column (`at`), in the current table. `width` has a
+configurable minimum of 5. `at` is optional and defaults to current cursor position.
 
 ### TablePosition
 

@@ -1,9 +1,9 @@
 {
-  "name": "slate-edit-table",
-  "description": "A Slate plugin to handle keyboard events in tables.",
-  "version": "0.13.1",
+  "name": "slate-table-simple",
+  "description": "A Slate plugin to handle simple tables.",
+  "version": "0.9.0",
   "license": "Apache-2.0",
-  "repository": "git://github.com/GitbookIO/slate-edit-table.git",
+  "repository": "git://github.com/cdd/slate-table-simple.git",
   "main": "./dist/index.js",
   "peerDependencies": {
     "immutable": "^3.8.1",
