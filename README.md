@@ -1,30 +1,31 @@
-# slate-edit-table
+# slate-simple-table
 
-[![NPM version](https://badge.fury.io/js/slate-edit-table.svg)](http://badge.fury.io/js/slate-edit-table)
-[![Linux Build Status](https://travis-ci.org/GitbookIO/slate-edit-table.png?branch=master)](https://travis-ci.org/GitbookIO/slate-edit-table)
+[![NPM version](https://badge.fury.io/js/slate-simple-table.svg)](http://badge.fury.io/js/slate-simple-table)
+[![Linux Build Status](https://travis-ci.org/cdd/slate-simple-table.png?branch=master)](https://travis-ci.org/cdd/slate-simple-table)
 
-A Slate plugin to handle table edition.
+A Slate plugin to handle a simple table.
 
 ### Install
 
 ```
-npm install slate-edit-table
+npm install slate-simple-table
 ```
 
 ### Features
 
 - Pressing <kbd>Up</kbd> and <kbd>Down</kbd>, move the cursor to next/previous row
-- Pressing <kbd>Enter</kbd>, insert a new row
 - Pressing <kbd>Tab</kbd>, move the select to next cell
 - Pressing <kbd>Shift+Tab</kbd>, move the select to previous cell
+- Pressing <kbd>Enter</kbd>, move the select to the cell below
+- Pressing <kbd>Shift+Enter</kbd>, move the select to the cell above
 
 ### Simple Usage
 
 ```js
-import EditTable from 'slate-edit-table'
+import SimpleTable from 'slate-simple-table'
 
 const plugins = [
-  EditTable()
+  SimpleTable()
 ]
 ```
 
@@ -36,7 +37,7 @@ const plugins = [
 
 ### Utilities and Transform
 
-`slate-edit-table` exports utilities and transforms:
+`slate-simple-table` exports utilities and transforms:
 
 #### `utils.isSelectionInTable`
 
@@ -98,3 +99,14 @@ Move the selection by the given amount of columns and rows.
 
 Sets column alignment for a given column (`at`), in the current table. `align`
 defaults to center, `at` is optional and defaults to current cursor position.
+
+#### `transforms.setColumnWidth`
+
+`plugin.transforms.setColumnWidth(transform: Transform, width: Number, at: Number) => Transform`
+
+Sets column width for a given column (`at`), in the current table. `width` has a
+configurable minimum of 5. `at` is optional and defaults to current cursor position.
+
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/cdd/rspec-multiprocess_runner.
