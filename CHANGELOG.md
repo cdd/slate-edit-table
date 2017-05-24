@@ -3,6 +3,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.10.1] - 2017-05-24
+  [0.10.1]: https://github.com/cdd/slate-simple-table/compare/0.9.0...0.10.1
+
+- renamed repo to `slate-simple-table`
+- **BREAKING** changes to hotkeys, enter and tab no longer insert new rows or
+  columns
+- Added transform `setColumnWidth` and added width data to the table
+- Fixed a selection bug in `insertColumn`
+
 ## [0.9.0] - 2016-04-21
   [0.9.0]: https://github.com/GitbookIO/slate-edit-table/compare/0.8.4...0.9.0
 
