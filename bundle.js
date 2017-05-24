@@ -1418,7 +1418,7 @@ function insertColumn(opts, transform, at) {
     });
 
     // Update the selection (not doing can break the undo)
-    return moveSelection(opts, transform, pos.getColumnIndex() + 1, pos.getRowIndex());
+    return moveSelection(opts, transform, at, pos.getRowIndex());
 }
 
 module.exports = insertColumn;
