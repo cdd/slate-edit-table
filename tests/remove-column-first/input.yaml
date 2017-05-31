@@ -7,6 +7,10 @@ nodes:
         - left
         - right
         - center
+      widths:
+        - 101
+        - 102
+        - 103
     nodes:
       - kind: block
         type: table_row
