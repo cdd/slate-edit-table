@@ -7,6 +7,10 @@ document:
           - center
           - left
           - center
+        widths:
+          - 100
+          - 100
+          - 100
       nodes:
         - kind: block
           type: table_row
@@ -15,22 +19,19 @@ document:
               type: table_cell
               nodes:
                 - kind: text
-                  leaves:
-                    - text: "Col 0, Row 0"
+                  text: "Col 0, Row 0"
             - kind: block
               type: table_cell
               data:
                 textAlign: left
               nodes:
                 - kind: text
-                  leaves:
-                    - text: ""
+                  text: ""
             - kind: block
               type: table_cell
               nodes:
                 - kind: text
-                  leaves:
-                    - text: "Col 1, Row 0"
+                  text: "Col 1, Row 0"
         - kind: block
           type: table_row
           nodes:
@@ -38,22 +39,19 @@ document:
               type: table_cell
               nodes:
                 - kind: text
-                  leaves:
-                    - text: "Col 0, Row 1"
+                  text: "Col 0, Row 1"
             - kind: block
               type: table_cell
               data:
                 textAlign: left
               nodes:
                 - kind: text
-                  leaves:
-                    - text: ""
+                  text: ""
             - kind: block
               type: table_cell
               nodes:
                 - kind: text
-                  leaves:
-                    - text: "Col 1, Row 1"
+                  text: "Col 1, Row 1"
         - kind: block
           type: table_row
           nodes:
@@ -61,19 +59,16 @@ document:
               type: table_cell
               nodes:
                 - kind: text
-                  leaves:
-                    - text: "Col 0, Row 2"
+                  text: "Col 0, Row 2"
             - kind: block
               type: table_cell
               data:
                 textAlign: left
               nodes:
                 - kind: text
-                  leaves:
-                    - text: ""
+                  text: ""
             - kind: block
               type: table_cell
               nodes:
                 - kind: text
-                  leaves:
-                    - text: "Col 1, Row 2"
+                  text: "Col 1, Row 2"
