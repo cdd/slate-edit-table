@@ -1,3 +1,4 @@
+# ... the column is cleared instead
 document:
   nodes:
     - kind: block
@@ -5,6 +6,8 @@ document:
       data:
         presetAlign:
           - left
+        widths:
+          - 100
       nodes:
         - kind: block
           type: table_row
@@ -13,8 +16,7 @@ document:
               type: table_cell
               nodes:
                 - kind: text
-                  leaves:
-                    - text: ""
+                  text: ""
         - kind: block
           type: table_row
           nodes:
@@ -22,8 +24,7 @@ document:
               type: table_cell
               nodes:
                 - kind: text
-                  leaves:
-                    - text: ""
+                  text: ""
         - kind: block
           type: table_row
           nodes:
@@ -31,5 +32,4 @@ document:
               type: table_cell
               nodes:
                 - kind: text
-                  leaves:
-                    - text: ""
+                  text: ""

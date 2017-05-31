@@ -1,3 +1,4 @@
+# Remove the remaining column of a single column table
 document:
   nodes:
     - kind: block
@@ -5,6 +6,8 @@ document:
       data:
         presetAlign:
           - left
+        widths:
+          - 100
       nodes:
         - kind: block
           type: table_row
@@ -14,8 +17,7 @@ document:
               key: '_cursor_'
               nodes:
                 - kind: text
-                  leaves:
-                    - text: "Col 0, Row 0"
+                  text: "Col 0, Row 0"
         - kind: block
           type: table_row
           nodes:
@@ -23,8 +25,7 @@ document:
               type: table_cell
               nodes:
                 - kind: text
-                  leaves:
-                    - text: "Col 0, Row 1"
+                  text: "Col 0, Row 1"
         - kind: block
           type: table_row
           nodes:
@@ -32,5 +33,4 @@ document:
               type: table_cell
               nodes:
                 - kind: text
-                  leaves:
-                    - text: "Col 0, Row 2"
+                  text: "Col 0, Row 2"
