@@ -1356,6 +1356,7 @@ var TablePosition = require('../TablePosition');
 var moveSelection = require('./moveSelection');
 var createCell = require('../createCell');
 var ALIGN = require('../ALIGN');
+var DIMENSIONS = require('../DIMENSIONS');
 
 /**
  * Insert a new column in current table
@@ -1364,10 +1365,12 @@ var ALIGN = require('../ALIGN');
  * @param {Slate.Transform} transform
  * @param {Number} at
  * @param {String} columnAlign
+ * @param {String} columnWidth
  * @return {Slate.Transform}
  */
 function insertColumn(opts, transform, at) {
     var columnAlign = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : ALIGN.DEFAULT;
+    var columnWidth = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : DIMENSIONS.DEFAULT.WIDTH;
     var _transform = transform,
         state = _transform.state;
     var startBlock = state.startBlock;
@@ -1390,8 +1393,13 @@ function insertColumn(opts, transform, at) {
     // Update alignment
     var align = List(table.data.get('align'));
     align = align.insert(at, columnAlign);
+    var widths = List(table.data.get('widths'));
+    widths = widths.insert(at, columnWidth);
     transform = transform.setNodeByKey(table.key, {
-        data: { align: align }
+        data: {
+            align: align,
+            widths: widths
+        }
     });
 
     // Update the selection (not doing can break the undo)
@@ -1400,7 +1408,7 @@ function insertColumn(opts, transform, at) {
 
 module.exports = insertColumn;
 
-},{"../ALIGN":3,"../TablePosition":5,"../createCell":7,"./moveSelection":19,"immutable":165}],17:[function(require,module,exports){
+},{"../ALIGN":3,"../DIMENSIONS":4,"../TablePosition":5,"../createCell":7,"./moveSelection":19,"immutable":165}],17:[function(require,module,exports){
 'use strict';
 
 var createRow = require('../createRow');
@@ -1630,8 +1638,13 @@ function removeColumn(opts, transform, at) {
         // Update alignment
         var align = List(table.data.get('align'));
         align = align.delete(at);
+        var widths = List(table.data.get('widths'));
+        widths = widths.delete(at);
         transform = transform.setNodeByKey(table.key, {
-            data: { align: align }
+            data: {
+                align: align,
+                widths: widths
+            }
         });
     }
     // If last column, clear text in cells instead
