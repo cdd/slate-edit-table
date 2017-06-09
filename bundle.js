@@ -561,13 +561,17 @@ var TablePosition = function (_ref) {
          * and a current cell.
          *
          * @param  {Slate.State} state
-         * @param  {State.Block} cell
+         * @param  {State.Block} block
          * @return {TablePosition}
          */
 
     }], [{
         key: 'create',
-        value: function create(state, cell) {
+        value: function create(state, block) {
+            var cell = block.type === 'table_cell' ? block : state.document.getClosest(block.key, function (b) {
+                return b.type === 'table_cell';
+            });
+
             var row = state.document.getParent(cell.key);
             var table = state.document.getParent(row.key);
 
@@ -747,6 +751,7 @@ var onUpDown = require('./onUpDown');
 var ALIGN = require('./ALIGN');
 var DIMENSIONS = require('./DIMENSIONS');
 var makeSchema = require('./makeSchema');
+var TablePosition = require('./TablePosition');
 
 var KEY_ENTER = 'enter';
 var KEY_TAB = 'tab';
@@ -776,7 +781,9 @@ function SimpleTable(opts) {
 
         // Only handle events in cells
 
-        return startBlock.type === opts.typeCell;
+        return startBlock.type === opts.typeCell || state.document.getClosest(state.startKey, function (b) {
+            return b.type === opts.typeCell;
+        });
     }
 
     /**
@@ -853,9 +860,11 @@ function SimpleTable(opts) {
 SimpleTable.ALIGN = ALIGN;
 SimpleTable.DIMENSIONS = DIMENSIONS;
 
+SimpleTable.TablePosition = TablePosition;
+
 module.exports = SimpleTable;
 
-},{"./ALIGN":3,"./DIMENSIONS":4,"./makeSchema":12,"./onBackspace":13,"./onTabEnter":14,"./onUpDown":15,"./transforms/insertColumn":16,"./transforms/insertRow":17,"./transforms/insertTable":18,"./transforms/moveSelection":19,"./transforms/moveSelectionBy":20,"./transforms/removeColumn":21,"./transforms/removeRow":22,"./transforms/removeTable":23,"./transforms/setColumnAlign":24,"./transforms/setColumnWidth":25}],12:[function(require,module,exports){
+},{"./ALIGN":3,"./DIMENSIONS":4,"./TablePosition":5,"./makeSchema":12,"./onBackspace":13,"./onTabEnter":14,"./onUpDown":15,"./transforms/insertColumn":16,"./transforms/insertRow":17,"./transforms/insertTable":18,"./transforms/moveSelection":19,"./transforms/moveSelectionBy":20,"./transforms/removeColumn":21,"./transforms/removeRow":22,"./transforms/removeTable":23,"./transforms/setColumnAlign":24,"./transforms/setColumnWidth":25}],12:[function(require,module,exports){
 'use strict';
 
 var Slate = require('slate');
