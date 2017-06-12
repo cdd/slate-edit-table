@@ -51,7 +51,7 @@ Return true if selection is inside a table cell.
 #### `utils.getPosition`
 
 ```
-plugin.changes.insertTable(change: Change, columns: Number?, rows: Number?, cellGetter: Function?) => Change
+plugin.changes.insertTable(change: Change, columns: Number?, rows: Number?, cellGetter: Function?, widths: List?) => Change
 ```
 
 Insert a new empty table.
