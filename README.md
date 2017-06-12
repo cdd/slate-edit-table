@@ -59,7 +59,7 @@ Return true if selection starts and ends both outside any table.  (Notice: it is
 #### `utils.getPosition`
 
 ```
-plugin.changes.insertTable(change: Change, columns: Number?, rows: Number?) => Change
+plugin.changes.insertTable(change: Change, columns: Number?, rows: Number?, cellGetter: Function?) => Change
 ```
 
 Insert a new empty table.
