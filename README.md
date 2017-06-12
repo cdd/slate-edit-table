@@ -50,7 +50,7 @@ Return true if selection is inside a table.
 #### `transforms.insertTable`
 
 ```
-plugin.transforms.insertTable(transform: Transform, columns: Number?, rows: Number?) => Transform
+plugin.transforms.insertTable(transform: Transform, columns: Number?, rows: Number?, cellGetter: Function?) => Transform
 ```
 
 Insert a new empty table.
