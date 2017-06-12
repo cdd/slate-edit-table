@@ -690,14 +690,15 @@ var createWidths = require('./createWidths.js');
  * @param {Number} columns
  * @param {Number} rows
  * @param {Function} cellGetter
+ * @param {List} widths
  * @return {State.Block}
  */
-function createTable(opts, columns, rows, cellGetter) {
+function createTable(opts, columns, rows, cellGetter, widths) {
     var rowNodes = Range(0, rows).map(function (i) {
         return createRow(opts, columns, cellGetter ? cellGetter.bind(null, i) : null);
     }).toList();
     var align = createAlign(columns);
-    var widths = createWidths(columns);
+    widths = widths || createWidths(columns);
 
     return Slate.Block.create({
         type: opts.typeTable,
