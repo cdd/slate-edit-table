@@ -649,12 +649,18 @@ var createCell = require('./createCell');
  *
  * @param {Object} opts
  * @param {Number} columns
- * @param {Function} textGetter
+ * @param {Function} cellGetter
  * @return {State.Block}
  */
-function createRow(opts, columns, textGetter) {
+function createRow(opts, columns, cellGetter) {
     var cellNodes = Immutable.Range(0, columns).map(function (i) {
-        return createCell(opts.typeCell, textGetter ? textGetter(i) : '');
+        var cell = cellGetter ? cellGetter(i) : '';
+
+        if (cell instanceof Slate.Block && cell.type === opts.typeCell) {
+            return cell;
+        } else {
+            return createCell(opts.typeCell, cell);
+        }
     }).toList();
 
     return Slate.Block.create({
@@ -683,12 +689,12 @@ var createWidths = require('./createWidths.js');
  * @param {Object} opts
  * @param {Number} columns
  * @param {Number} rows
- * @param {Function} textGetter
+ * @param {Function} cellGetter
  * @return {State.Block}
  */
-function createTable(opts, columns, rows, textGetter) {
+function createTable(opts, columns, rows, cellGetter) {
     var rowNodes = Range(0, rows).map(function (i) {
-        return createRow(opts, columns, textGetter ? textGetter.bind(null, i) : null);
+        return createRow(opts, columns, cellGetter ? cellGetter.bind(null, i) : null);
     }).toList();
     var align = createAlign(columns);
     var widths = createWidths(columns);
@@ -1459,6 +1465,10 @@ module.exports = insertRow;
 
 var createTable = require('../createTable');
 
+var fillWithEmptyText = function fillWithEmptyText(x, y) {
+  return '';
+};
+
 /**
  * Insert a new table
  *
@@ -1466,21 +1476,20 @@ var createTable = require('../createTable');
  * @param {Slate.Transform} transform
  * @param {Number} columns
  * @param {Number} rows
+ * @param {Function} cellGetter
  * @return {Slate.Transform}
  */
 function insertTable(opts, transform) {
   var columns = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 2;
   var rows = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 2;
+  var cellGetter = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : fillWithEmptyText;
   var state = transform.state;
 
 
   if (!state.selection.startKey) return false;
 
   // Create the table node
-  var fillWithEmptyText = function fillWithEmptyText(x, y) {
-    return '';
-  };
-  var table = createTable(opts, columns, rows, fillWithEmptyText);
+  var table = createTable(opts, columns, rows, cellGetter);
 
   return transform.insertBlock(table);
 }
