@@ -751,6 +751,7 @@ var moveSelectionBy = require('./transforms/moveSelectionBy');
 var setColumnAlign = require('./transforms/setColumnAlign');
 var setColumnWidth = require('./transforms/setColumnWidth');
 
+var createTable = require('./createTable');
 var onTabEnter = require('./onTabEnter');
 var onBackspace = require('./onBackspace');
 var onUpDown = require('./onUpDown');
@@ -844,7 +845,8 @@ function SimpleTable(opts) {
         schema: schema,
 
         utils: {
-            isSelectionInTable: isSelectionInTable
+            isSelectionInTable: isSelectionInTable,
+            createTable: createTable.bind(null, opts)
         },
 
         transforms: {
@@ -870,7 +872,7 @@ SimpleTable.TablePosition = TablePosition;
 
 module.exports = SimpleTable;
 
-},{"./ALIGN":3,"./DIMENSIONS":4,"./TablePosition":5,"./makeSchema":12,"./onBackspace":13,"./onTabEnter":14,"./onUpDown":15,"./transforms/insertColumn":16,"./transforms/insertRow":17,"./transforms/insertTable":18,"./transforms/moveSelection":19,"./transforms/moveSelectionBy":20,"./transforms/removeColumn":21,"./transforms/removeRow":22,"./transforms/removeTable":23,"./transforms/setColumnAlign":24,"./transforms/setColumnWidth":25}],12:[function(require,module,exports){
+},{"./ALIGN":3,"./DIMENSIONS":4,"./TablePosition":5,"./createTable":9,"./makeSchema":12,"./onBackspace":13,"./onTabEnter":14,"./onUpDown":15,"./transforms/insertColumn":16,"./transforms/insertRow":17,"./transforms/insertTable":18,"./transforms/moveSelection":19,"./transforms/moveSelectionBy":20,"./transforms/removeColumn":21,"./transforms/removeRow":22,"./transforms/removeTable":23,"./transforms/setColumnAlign":24,"./transforms/setColumnWidth":25}],12:[function(require,module,exports){
 'use strict';
 
 var Slate = require('slate');
