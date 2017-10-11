@@ -11,27 +11,6 @@ document:
               nodes:
                 - kind: text
                   ranges:
-                    - text: ""
-            - kind: block
-              type: table_cell
-              nodes:
-                - kind: text
-                  ranges:
-                    - text: ""
-            - kind: block
-              type: table_cell
-              nodes:
-                - kind: text
-                  ranges:
-                    - text: ""
-        - kind: block
-          type: table_row
-          nodes:
-            - kind: block
-              type: table_cell
-              nodes:
-                - kind: text
-                  ranges:
                     - text: "Col 0, Row 0"
             - kind: block
               type: table_cell

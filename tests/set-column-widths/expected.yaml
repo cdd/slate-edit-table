@@ -1,48 +1,48 @@
-
-nodes:
-  - kind: block
-    type: table
-    data:
-      widths:
-          - 100
-          - 50
-    nodes:
-      - kind: block
-        type: table_row
-        nodes:
-          - kind: block
-            type: table_cell
-            nodes:
-              - kind: text
-                text: "Col 0, Row 0"
-          - kind: block
-            type: table_cell
-            nodes:
-              - kind: text
-                text: "Col 1, Row 0"
-      - kind: block
-        type: table_row
-        nodes:
-          - kind: block
-            type: table_cell
-            nodes:
-              - kind: text
-                text: "Col 0, Row 1"
-          - kind: block
-            type: table_cell
-            nodes:
-              - kind: text
-                text: "Col 1, Row 1"
-      - kind: block
-        type: table_row
-        nodes:
-          - kind: block
-            type: table_cell
-            nodes:
-              - kind: text
-                text: "Col 0, Row 2"
-          - kind: block
-            type: table_cell
-            nodes:
-              - kind: text
-                text: "Col 1, Row 2"
+document:
+  nodes:
+    - kind: block
+      type: table
+      data:
+        widths:
+            - 100
+            - 50
+      nodes:
+        - kind: block
+          type: table_row
+          nodes:
+            - kind: block
+              type: table_cell
+              nodes:
+                - kind: text
+                  text: "Col 0, Row 0"
+            - kind: block
+              type: table_cell
+              nodes:
+                - kind: text
+                  text: "Col 1, Row 0"
+        - kind: block
+          type: table_row
+          nodes:
+            - kind: block
+              type: table_cell
+              nodes:
+                - kind: text
+                  text: "Col 0, Row 1"
+            - kind: block
+              type: table_cell
+              nodes:
+                - kind: text
+                  text: "Col 1, Row 1"
+        - kind: block
+          type: table_row
+          nodes:
+            - kind: block
+              type: table_cell
+              nodes:
+                - kind: text
+                  text: "Col 0, Row 2"
+            - kind: block
+              type: table_cell
+              nodes:
+                - kind: text
+                  text: "Col 1, Row 2"

@@ -24,6 +24,8 @@ document:
       data:
         align:
           - left
+        widths:
+          - 100
       nodes:
         # Row 1
         - kind: block
