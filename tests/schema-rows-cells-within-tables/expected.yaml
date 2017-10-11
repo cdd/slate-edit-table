@@ -8,7 +8,6 @@ document:
           - left
         widths:
           - 100
-          - 100
       nodes:
         - kind: block
           type: table_row
@@ -24,7 +23,6 @@ document:
         presetAlign:
           - left
         widths:
-          - 100
           - 100
       nodes:
         - kind: block

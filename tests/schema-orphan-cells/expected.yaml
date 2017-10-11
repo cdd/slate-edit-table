@@ -6,6 +6,8 @@ document:
       data:
         presetAlign:
           - left
+        widths:
+          - 100
       nodes:
         - kind: block
           type: table_row
@@ -21,6 +23,8 @@ document:
       data:
         presetAlign:
           - left
+        widths:
+          - 100
       nodes:
         - kind: block
           type: table_row
@@ -31,3 +35,4 @@ document:
                 - kind: text
                   leaves:
                     - text: "Cell 2"
+

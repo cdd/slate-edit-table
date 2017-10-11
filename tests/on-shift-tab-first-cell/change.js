@@ -16,10 +16,10 @@ export default function(plugin, change) {
 
     const position = plugin.utils.getPosition(change.value);
 
-    // First row (new one)
+    // First row
     expect(position.getRowIndex()).toEqual(0);
-    // Last cell
-    expect(position.getColumnIndex()).toEqual(2);
+    // First cell
+    expect(position.getColumnIndex()).toEqual(0);
 
     return change;
 }

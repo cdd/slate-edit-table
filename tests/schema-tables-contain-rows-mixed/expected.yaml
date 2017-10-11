@@ -24,6 +24,8 @@ document:
       data:
         presetAlign:
           - left
+        widths:
+          - 100
       nodes:
         # Row 1
         - kind: block

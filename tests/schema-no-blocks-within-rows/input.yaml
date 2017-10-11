@@ -7,6 +7,10 @@ document:
               - left
               - left
               - left
+          widths:
+              - 100
+              - 100
+              - 100
       nodes:
         # Row 1
         - kind: block
@@ -30,9 +34,3 @@ document:
                 - kind: text
                   leaves:
                     - text: "Row 1, Col 3"
-            - kind: block
-              type: paragraph
-              nodes:
-                - kind: text
-                  leaves:
-                    - text: "Row 1, Col 4"
