@@ -3,7 +3,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.11.3]
+
 ## [0.11.2]
+  [0.11.1]: https://github.com/cdd/slate-simple-table/compare/v0.11.1...v0.11.2
 
 - Allow inserting of arbitrary blocks into cells via createCell
 
