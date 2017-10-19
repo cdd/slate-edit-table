@@ -5,6 +5,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [0.11.2]
 
+- Allow inserting of arbitrary blocks into cells via createCell
 
 ## [0.11.1] - 2017-10-11
   [0.11.0]: https://github.com/cdd/slate-simple-table/compare/v0.11.0...v0.11.1
