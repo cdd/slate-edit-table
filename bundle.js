@@ -1104,19 +1104,21 @@ var Slate = require('slate');
 /**
  * Create a new cell
  * @param {String} type
- * @param {String} text?
+ * @param {String | Node | Array} contents?
  * @return {Slate.Node}
  */
-function createCell(type, text) {
-    text = text || '';
+function createCell(type, contents) {
+    contents = contents || '';
 
-    return Slate.Block.create({
-        type: type,
-        nodes: [Slate.Text.fromJSON({
-            kind: 'text',
-            text: text
-        })]
-    });
+    if (typeof contents === 'string') {
+        contents = Slate.Text.create({
+            text: contents
+        });
+    }
+
+    var nodes = contents instanceof Array ? contents : [contents];
+
+    return Slate.Block.create({ type: type, nodes: nodes });
 }
 
 module.exports = createCell;
