@@ -1248,11 +1248,11 @@ var DIMENSIONS = require('./DIMENSIONS');
 var makeSchema = require('./makeSchema');
 var TablePosition = require('./TablePosition');
 
-var KEY_ENTER = 'enter';
-var KEY_TAB = 'tab';
-var KEY_BACKSPACE = 'backspace';
-var KEY_DOWN = 'down';
-var KEY_UP = 'up';
+var KEY_ENTER = 'Enter';
+var KEY_TAB = 'Tab';
+var KEY_BACKSPACE = 'Backspace';
+var KEY_DOWN = 'ArrowDown';
+var KEY_UP = 'ArrowUp';
 
 /**
  * @param {Options} opts The plugin options
@@ -1741,7 +1741,7 @@ module.exports = makeSchema;
 
 var Slate = require('slate');
 
-function onBackspace(event, data, change, opts) {
+function onBackspace(event, change, editor, opts) {
     var state = change.state;
     var startBlock = state.startBlock,
         startOffset = state.startOffset,
@@ -1805,17 +1805,17 @@ function selectAllText(change) {
  * Pressing "Tab" or "Enter" moves the cursor to the next cell
  * and select the whole text
  */
-function onTabEnter(event, data, change, opts) {
+function onTabEnter(event, change, editor, opts) {
     event.preventDefault();
     var state = change.state;
 
     var dx = 0;
     var dy = 0;
 
-    if (data.key === 'tab') {
-        dx = data.isShift ? -1 : 1;
+    if (event.key === 'Tab') {
+        dx = event.shiftKey ? -1 : 1;
     } else {
-        dy = data.isShift ? -1 : 1;
+        dy = event.shiftKey ? -1 : 1;
     }
 
     // Move
@@ -1833,9 +1833,9 @@ module.exports = onTabEnter;
 var TablePosition = require('./TablePosition');
 var moveSelectionBy = require('./changes/moveSelectionBy');
 
-function onUpDown(event, data, change, opts) {
+function onUpDown(event, change, editor, opts) {
 
-    var direction = data.key === 'up' ? -1 : +1;
+    var direction = event.key === 'ArrowUp' ? -1 : +1;
     var pos = TablePosition.create(change.state, change.state.startBlock);
 
     if (pos.isFirstRow() && direction === -1 || pos.isLastRow() && direction === +1) {
@@ -1844,7 +1844,7 @@ function onUpDown(event, data, change, opts) {
     } else {
         event.preventDefault();
 
-        moveSelectionBy(opts, change, 0, data.key === 'up' ? -1 : +1);
+        moveSelectionBy(opts, change, 0, event.key === 'ArrowUp' ? -1 : +1);
 
         return change;
     }
