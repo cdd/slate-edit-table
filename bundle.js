@@ -1318,9 +1318,9 @@ function SimpleTable(opts) {
         }
 
         // Build arguments list
-        var args = [e, data, change, opts];
+        var args = [e, change, editor, opts];
 
-        switch (data.key) {
+        switch (e.key) {
             case KEY_ENTER:
             case KEY_TAB:
                 return onTabEnter.apply(undefined, args);
