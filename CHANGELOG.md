@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.11.5] - 2017-10-23
+  [0.11.4]: https://github.com/cdd/slate-simple-table/compare/v0.11.4...v0.11.5
+
+- Actually, actually fix onKeyDown
+- Address deprecation warnings
+
 ## [0.11.4] - 2017-10-23
   [0.11.3]: https://github.com/cdd/slate-simple-table/compare/v0.11.3...v0.11.4
 
