@@ -1311,7 +1311,7 @@ function SimpleTable(opts) {
     /**
      * User is pressing a key in the editor
      */
-    function onKeyDown(e, data, change) {
+    function onKeyDown(e, change, editor) {
         // Only handle events in cells
         if (!isSelectionInTable(change.state)) {
             return;
