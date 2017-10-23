@@ -5,4 +5,5 @@ document:
       key: '_cursor_'
       nodes:
         - kind: text
-          text: "BeforeAfter"
+          ranges:
+            - text: "BeforeAfter"

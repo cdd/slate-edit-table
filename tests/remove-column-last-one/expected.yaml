@@ -16,7 +16,8 @@ document:
               type: table_cell
               nodes:
                 - kind: text
-                  text: ""
+                  ranges:
+                    - text: ""
         - kind: block
           type: table_row
           nodes:
@@ -24,7 +25,8 @@ document:
               type: table_cell
               nodes:
                 - kind: text
-                  text: ""
+                  ranges:
+                    - text: ""
         - kind: block
           type: table_row
           nodes:
@@ -32,4 +34,5 @@ document:
               type: table_cell
               nodes:
                 - kind: text
-                  text: ""
+                  ranges:
+                    - text: ""
