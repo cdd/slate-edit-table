@@ -8,7 +8,8 @@ export default function(plugin, change) {
         {
             key: 'Backspace',
             preventDefault() {},
-            stopPropagation() {}
+            stopPropagation() {},
+            key: 'Backspace'
         },
         withCursor
     );

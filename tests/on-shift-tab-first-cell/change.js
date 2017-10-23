@@ -9,7 +9,9 @@ export default function(plugin, change) {
             key: 'Tab',
             shiftKey: true,
             preventDefault() {},
-            stopPropagation() {}
+            stopPropagation() {},
+            key: 'Tab',
+            shiftKey: true
         },
         change
     );
