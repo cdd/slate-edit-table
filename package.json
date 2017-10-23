@@ -43,5 +43,6 @@
   },
   "keywords": [
     "slate"
-  ]
+  ],
+  "dependencies": {}
 }

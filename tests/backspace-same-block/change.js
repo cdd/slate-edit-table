@@ -12,9 +12,9 @@ module.exports = function(plugin, change) {
     const result = plugin.onKeyDown(
         {
             preventDefault() {},
-            stopPropagation() {}
+            stopPropagation() {},
+            key: 'Backspace'
         },
-        { key: 'backspace' },
         withCursor
     );
 
