@@ -4,7 +4,8 @@ document:
       type: paragraph
       nodes:
         - kind: text
-          text: "Before"
+          ranges:
+            - text: "Before"
     - kind: block
       type: table
       data:
@@ -22,12 +23,14 @@ document:
               type: table_cell
               nodes:
                 - kind: text
-                  text: "A-0"
+                  ranges:
+                    - text: "A-0"
             - kind: block
               type: table_cell
               nodes:
                 - kind: text
-                  text: "A-1"
+                  ranges:
+                    - text: "A-1"
         - kind: block
           type: table_row
           nodes:
@@ -35,9 +38,11 @@ document:
               type: table_cell
               nodes:
                 - kind: text
-                  text: "B-0"
+                  ranges:
+                    - text: "B-0"
             - kind: block
               type: table_cell
               nodes:
                 - kind: text
-                  text: "B-1"
+                  ranges:
+                    - text: "B-1"

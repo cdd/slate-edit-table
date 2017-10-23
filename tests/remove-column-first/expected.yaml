@@ -17,12 +17,14 @@ document:
               type: table_cell
               nodes:
                 - kind: text
-                  text: "Col 1, Row 0"
+                  ranges:
+                    - text: "Col 1, Row 0"
             - kind: block
               type: table_cell
               nodes:
                 - kind: text
-                  text: "Col 2, Row 0"
+                  ranges:
+                    - text: "Col 2, Row 0"
         - kind: block
           type: table_row
           nodes:
@@ -30,12 +32,14 @@ document:
               type: table_cell
               nodes:
                 - kind: text
-                  text: "Col 1, Row 1"
+                  ranges:
+                    - text: "Col 1, Row 1"
             - kind: block
               type: table_cell
               nodes:
                 - kind: text
-                  text: "Col 2, Row 1"
+                  ranges:
+                    - text: "Col 2, Row 1"
         - kind: block
           type: table_row
           nodes:
@@ -43,9 +47,11 @@ document:
               type: table_cell
               nodes:
                 - kind: text
-                  text: "Col 1, Row 2"
+                  ranges:
+                    - text: "Col 1, Row 2"
             - kind: block
               type: table_cell
               nodes:
                 - kind: text
-                  text: "Col 2, Row 2"
+                  ranges:
+                    - text: "Col 2, Row 2"
