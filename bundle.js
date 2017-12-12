@@ -587,9 +587,6 @@ module.exports = TablePosition;
 },{"immutable":111}],6:[function(require,module,exports){
 'use strict';
 
-var _require = require('immutable'),
-    List = _require.List;
-
 var TablePosition = require('../TablePosition');
 var moveSelection = require('./moveSelection');
 var createCell = require('../createCell');
@@ -629,11 +626,11 @@ function insertColumn(opts, change, at) {
     });
 
     // Update alignment
-    var align = List(table.data.get('align'));
-    align = align.insert(at, columnAlign);
+    var align = table.data.get('align', []);
+    align.splice(at, 0, columnAlign);
 
-    var widths = List(table.data.get('widths'));
-    widths = widths.insert(at, columnWidth);
+    var widths = table.data.get('widths', []);
+    widths.splice(at, 0, columnWidth);
 
     change = change.setNodeByKey(table.key, {
         data: {
@@ -648,7 +645,7 @@ function insertColumn(opts, change, at) {
 
 module.exports = insertColumn;
 
-},{"../ALIGN":3,"../DIMENSIONS":4,"../TablePosition":5,"../createCell":17,"./moveSelection":9,"immutable":111}],7:[function(require,module,exports){
+},{"../ALIGN":3,"../DIMENSIONS":4,"../TablePosition":5,"../createCell":17,"./moveSelection":9}],7:[function(require,module,exports){
 'use strict';
 
 var createRow = require('../createRow');
@@ -842,9 +839,6 @@ module.exports = moveSelectionBy;
 },{"../TablePosition":5,"./moveSelection":9}],11:[function(require,module,exports){
 'use strict';
 
-var _require = require('immutable'),
-    List = _require.List;
-
 var TablePosition = require('../TablePosition');
 
 /**
@@ -879,11 +873,11 @@ function removeColumn(opts, change, at) {
         });
 
         // Update alignment
-        var align = List(table.data.get('align'));
-        align = align.delete(at);
+        var align = table.data.get('align', []);
+        align.splice(at, 1);
 
-        var widths = List(table.data.get('widths'));
-        widths = widths.delete(at);
+        var widths = table.data.get('widths', []);
+        widths.splice(at, 1);
 
         change = change.setNodeByKey(table.key, {
             data: {
@@ -910,7 +904,7 @@ function removeColumn(opts, change, at) {
 
 module.exports = removeColumn;
 
-},{"../TablePosition":5,"immutable":111}],12:[function(require,module,exports){
+},{"../TablePosition":5}],12:[function(require,module,exports){
 'use strict';
 
 var TablePosition = require('../TablePosition');
