@@ -626,10 +626,10 @@ function insertColumn(opts, change, at) {
     });
 
     // Update alignment
-    var align = table.data.get('align', []);
+    var align = table.data.get('align', []).slice();
     align.splice(at, 0, columnAlign);
 
-    var widths = table.data.get('widths', []);
+    var widths = table.data.get('widths', []).slice();
     widths.splice(at, 0, columnWidth);
 
     change = change.setNodeByKey(table.key, {
@@ -873,10 +873,10 @@ function removeColumn(opts, change, at) {
         });
 
         // Update alignment
-        var align = table.data.get('align', []);
+        var align = table.data.get('align', []).slice();
         align.splice(at, 1);
 
-        var widths = table.data.get('widths', []);
+        var widths = table.data.get('widths', []).slice();
         widths.splice(at, 1);
 
         change = change.setNodeByKey(table.key, {
