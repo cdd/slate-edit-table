@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.11.7] - 2017-12-12
+  [0.11.6]: https://github.com/cdd/slate-simple-table/compare/v0.11.6...v0.11.7
+
+- Copy align and width arrays during column insert/delete
+
 ## [0.11.6] - 2017-12-11
   [0.11.5]: https://github.com/cdd/slate-simple-table/compare/v0.11.5...v0.11.6
 

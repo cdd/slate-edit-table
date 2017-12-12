@@ -6,7 +6,6 @@ document:
         align:
           - left
           - left
-          - left
       nodes:
         - kind: block
           type: table_row
