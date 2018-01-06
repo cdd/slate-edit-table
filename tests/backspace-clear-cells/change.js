@@ -11,8 +11,7 @@ export default function(plugin, change) {
         {
             key: 'Backspace',
             preventDefault() {},
-            stopPropagation() {},
-            key: 'Backspace'
+            stopPropagation() {}
         },
         withCursor
     );

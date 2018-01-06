@@ -7,6 +7,10 @@ document:
           - center
           - left
           - center
+        widths:
+          - 100
+          - 100
+          - 100
         custom: value
       nodes:
         - kind: block

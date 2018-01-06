@@ -11,9 +11,7 @@ export default function(plugin, change) {
             key: 'Tab',
             shiftKey: true,
             preventDefault() {},
-            stopPropagation() {},
-            key: 'Tab',
-            shiftKey: true
+            stopPropagation() {}
         },
         change
     );

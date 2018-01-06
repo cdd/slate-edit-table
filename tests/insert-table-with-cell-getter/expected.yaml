@@ -9,7 +9,7 @@ document:
     - kind: block
       type: table
       data:
-          align:
+          presetAlign:
               - left
               - left
           widths:
@@ -21,12 +21,16 @@ document:
           nodes:
             - kind: block
               type: table_cell
+              data:
+                textAlign: left
               nodes:
                 - kind: text
                   ranges:
                     - text: "A-0"
             - kind: block
               type: table_cell
+              data:
+                textAlign: left
               nodes:
                 - kind: text
                   ranges:
@@ -36,12 +40,16 @@ document:
           nodes:
             - kind: block
               type: table_cell
+              data:
+                textAlign: left
               nodes:
                 - kind: text
                   ranges:
                     - text: "B-0"
             - kind: block
               type: table_cell
+              data:
+                textAlign: left
               nodes:
                 - kind: text
                   ranges:

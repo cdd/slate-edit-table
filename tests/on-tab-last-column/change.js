@@ -10,8 +10,7 @@ export default function(plugin, change) {
         {
             key: 'Tab',
             preventDefault() {},
-            stopPropagation() {},
-            key: 'Tab'
+            stopPropagation() {}
         },
         change
     );

@@ -7,6 +7,9 @@ document:
         presetAlign:
           - left
           - center
+        widths:
+          - 100
+          - 100
       nodes:
         - kind: block
           type: table_row

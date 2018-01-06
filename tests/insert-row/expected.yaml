@@ -3,10 +3,14 @@ document:
     - kind: block
       type: table
       data:
-          presetAlign:
-              - left
-              - left
-              - left
+        presetAlign:
+          - left
+          - left
+          - left
+        widths:
+          - 100
+          - 100
+          - 100
       nodes:
         - kind: block
           type: table_row
