@@ -43,6 +43,7 @@ function core(optionsParam) {
         validateNode: (0, _validation.validateNode)(opts),
 
         utils: {
+            createTable: _utils.createTable.bind(null, opts),
             isSelectionInTable: _utils.isSelectionInTable.bind(null, opts),
             isSelectionOutOfTable: _utils.isSelectionOutOfTable.bind(null, opts),
             getPosition: _utils.getPosition.bind(null, opts)

@@ -12,10 +12,6 @@ var _getAdjustedRow = require('../helpers/getAdjustedRow');
 
 var _getAdjustedRow2 = _interopRequireDefault(_getAdjustedRow);
 
-var _util = require('util');
-
-var _util2 = _interopRequireDefault(_util);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
@@ -43,5 +39,4 @@ textGetter) {
 
     return change.insertNodeByKey(table.key, at, newRow).collapseToEndOf(newRow.nodes.get(pos.getColumnIndex()));
 }
-
 exports.default = insertRow;
