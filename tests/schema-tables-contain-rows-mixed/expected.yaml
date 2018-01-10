@@ -1,7 +1,7 @@
 document:
   nodes:
     # At least one row
-    - kind: block
+    - object: block
       type: table
       data:
         presetAlign:
@@ -9,17 +9,17 @@ document:
         widths:
           - 100
       nodes:
-        - kind: block
+        - object: block
           type: table_row
           nodes:
-            - kind: block
+            - object: block
               type: table_cell
               nodes:
-                - kind: text
+                - object: text
                   leaves:
                     - text: ""
     # Only rows
-    - kind: block
+    - object: block
       type: table
       data:
         presetAlign:
@@ -28,22 +28,22 @@ document:
           - 100
       nodes:
         # Row 1
-        - kind: block
+        - object: block
           type: table_row
           nodes:
-            - kind: block
+            - object: block
               type: table_cell
               nodes:
-                - kind: text
+                - object: text
                   leaves:
                     - text: "Row 1, Col 1"
         # Row 3
-        - kind: block
+        - object: block
           type: table_row
           nodes:
-            - kind: block
+            - object: block
               type: table_cell
               nodes:
-                - kind: text
+                - object: text
                   leaves:
                     - text: "Row 3, Col 1"
