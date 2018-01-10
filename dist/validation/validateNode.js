@@ -57,14 +57,14 @@ function toValidateNode(rule) {
 function noBlocksWithinCell(opts) {
     return {
         match: function match(node) {
-            return node.kind == 'block' && node.type == opts.typeCell;
+            return node.object == 'block' && node.type == opts.typeCell;
         },
 
 
         // Find nested blocks
         validate: function validate(node) {
             var nestedBlocks = node.nodes.filter(function (child) {
-                return child.kind === 'block';
+                return child.object === 'block';
             });
 
             return nestedBlocks.size > 0 ? nestedBlocks : null;
@@ -90,7 +90,7 @@ function noBlocksWithinCell(opts) {
 function cellsWithinTable(opts) {
     return {
         match: function match(node) {
-            return (node.kind === 'document' || node.kind === 'block') && node.type !== opts.typeRow;
+            return (node.object === 'document' || node.object === 'block') && node.type !== opts.typeRow;
         },
 
 
@@ -131,7 +131,7 @@ function cellsWithinTable(opts) {
 function rowsWithinTable(opts) {
     return {
         match: function match(node) {
-            return (node.kind === 'document' || node.kind === 'block') && node.type !== opts.typeTable;
+            return (node.object === 'document' || node.object === 'block') && node.type !== opts.typeTable;
         },
 
 

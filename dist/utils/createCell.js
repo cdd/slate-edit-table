@@ -14,7 +14,7 @@ function createCell(type) {
 
     if (typeof contents === 'string') {
         contents = _slate.Text.fromJSON({
-            kind: 'text',
+            object: 'text',
             text: contents
         });
     }
