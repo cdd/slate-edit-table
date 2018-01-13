@@ -14,9 +14,16 @@ function isSelectionOutOfTable(opts, value) {
     var startBlock = value.startBlock,
         endBlock = value.endBlock;
 
-    // Only handle events in cells
 
-    return startBlock.type !== opts.typeCell && endBlock.type !== opts.typeCell;
+    var startCell = value.document.getClosest(startBlock.key, function (node) {
+        return node.type === typeCell;
+    });
+    var endCell = value.document.getClosest(endBlock.key, function (node) {
+        return node.type === typeCell;
+    });
+
+    // Only handle events in cells
+    return !startCell && !endCell;
 }
 
 exports.default = isSelectionOutOfTable;

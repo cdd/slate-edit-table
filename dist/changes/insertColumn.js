@@ -58,7 +58,7 @@ function insertColumn(opts, change, at) {
     });
 
     // Update the selection (not doing can break the undo)
-    return (0, _changes.moveSelection)(opts, change, pos.getColumnIndex() + 1, pos.getRowIndex());
+    return (0, _changes.moveSelection)(opts, change, at, pos.getRowIndex());
 }
 
 exports.default = insertColumn;

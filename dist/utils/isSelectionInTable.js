@@ -9,36 +9,56 @@ Object.defineProperty(exports, "__esModule", {
  * Is the selection in a table
  */
 function isSelectionInTable(opts, value) {
-    if (!value.selection.startKey) return false;
+    var _value$selection = value.selection,
+        anchorKey = _value$selection.anchorKey,
+        focusKey = _value$selection.focusKey;
 
-    var startBlock = value.startBlock,
-        endBlock = value.endBlock;
+
+    if (!anchorKey || !focusKey) return false;
+
+    var typeTable = opts.typeTable,
+        typeRow = opts.typeRow,
+        typeCell = opts.typeCell;
+
+
+    var startCell = value.document.getClosest(anchorKey, function (node) {
+        return node.type === typeCell;
+    });
+    var endCell = value.document.getClosest(focusKey, function (node) {
+        return node.type === typeCell;
+    });
 
     // Only handle events in cells
-
-    if (startBlock.type !== opts.typeCell || endBlock.type !== opts.typeCell) {
+    if (!startCell || !endCell) {
         return false;
     }
 
-    if (startBlock === endBlock) {
-        return startBlock.type === opts.typeCell;
+    if (anchorKey === focusKey) {
+        return true;
     }
     // Not the same cell, look into ancestor chain:
 
-    var startAncestors = value.document.getAncestors(startBlock.key).slice(-2);
-    var endAncestors = value.document.getAncestors(endBlock.key).slice(-2);
+    var startRow = value.document.getClosest(anchorKey, function (node) {
+        return node.type === typeRow;
+    });
+    var endRow = value.document.getClosest(focusKey, function (node) {
+        return node.type === typeRow;
+    });
 
     // Check for same table row
-    var startRow = startAncestors.last();
-    var endRow = endAncestors.last();
     if (startRow === endRow) {
         return true;
     }
     // Different rows
 
+    var startTable = value.document.getClosest(startRow, function (node) {
+        return node.type === typeTable;
+    });
+    var endTable = value.document.getClosest(endRow, function (node) {
+        return node.type === typeTable;
+    });
+
     // Check for same table
-    var startTable = startAncestors.first();
-    var endTable = endAncestors.first();
     return startTable === endTable;
 }
 

@@ -37,6 +37,6 @@ textGetter) {
         at = pos.getRowIndex() + 1;
     }
 
-    return change.insertNodeByKey(table.key, at, newRow).collapseToEndOf(newRow.nodes.get(pos.getColumnIndex()));
+    return change.insertNodeByKey(table.key, at, newRow).collapseToEndOf(newRow.nodes.get(pos.getColumnIndex()).getFirstText());
 }
 exports.default = insertRow;

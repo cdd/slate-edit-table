@@ -51,9 +51,9 @@ function toValidateNode(rule) {
 }
 
 /**
-* Rule to enforce cells only contain inlines or text.
-* It unwrap blocks in cell blocks
-*/
+ * Rule to enforce cells only contain inlines or text.
+ * It unwrap blocks in cell blocks
+ */
 function noBlocksWithinCell(opts) {
     return {
         match: function match(node) {
@@ -75,7 +75,7 @@ function noBlocksWithinCell(opts) {
         normalize: function normalize(change, node, nestedBlocks) {
             nestedBlocks.forEach(function (block) {
                 return block.nodes.forEach(function (grandChild) {
-                    change.unwrapNodeByKey(grandChild.key);
+                    change.unwrapNodeByKey(grandChild.key, { normalize: false });
                 });
             });
 
@@ -216,7 +216,7 @@ function tablesContainOnlyRows(opts) {
 
             // Add valids
             add.forEach(function (child) {
-                return change.insertNodeByKey(node.key, 0, child);
+                return change.insertNodeByKey(node.key, 0, child, { normalize: false });
             });
 
             return change;

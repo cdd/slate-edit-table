@@ -6,21 +6,27 @@ Object.defineProperty(exports, "__esModule", {
 
 var _slate = require('slate');
 
+var _immutable = require('immutable');
+
 /**
  * Create a new cell
  */
 function createCell(type) {
     var contents = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
 
-    if (typeof contents === 'string') {
-        contents = _slate.Text.fromJSON({
-            object: 'text',
-            text: contents
-        });
-    }
+    var nodes = void 0;
 
-    var nodes = contents instanceof Array ? contents : [contents];
+    if (typeof contents === 'string') {
+        nodes = [_slate.Text.create(contents)];
+    } else if (_immutable.List.isList(contents)) {
+        nodes = contents.toArray();
+    } else if (contents instanceof Array) {
+        nodes = contents;
+    } else {
+        nodes = [contents];
+    }
 
     return _slate.Block.create({ type: type, nodes: nodes });
 }
+
 exports.default = createCell;

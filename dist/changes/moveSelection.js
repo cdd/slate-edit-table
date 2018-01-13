@@ -17,10 +17,6 @@ function moveSelection(opts, change, x, y) {
     var startOffset = value.startOffset;
 
 
-    if (startBlock.type !== opts.typeCell) {
-        throw new Error('moveSelection can only be applied from within a cell');
-    }
-
     var pos = _utils.TablePosition.create(value, startBlock);
     var table = pos.table;
 
