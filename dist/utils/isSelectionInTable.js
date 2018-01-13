@@ -3,15 +3,20 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-
+var getClosest = function getClosest(parent, childKey, type) {
+    return parent.getClosest(childKey, function (node) {
+        return node.type === type;
+    });
+};
 
 /**
  * Is the selection in a table
  */
 function isSelectionInTable(opts, value) {
-    var _value$selection = value.selection,
-        anchorKey = _value$selection.anchorKey,
-        focusKey = _value$selection.focusKey;
+    var document = value.document,
+        selection = value.selection;
+    var anchorKey = selection.anchorKey,
+        focusKey = selection.focusKey;
 
 
     if (!anchorKey || !focusKey) return false;
@@ -21,12 +26,8 @@ function isSelectionInTable(opts, value) {
         typeCell = opts.typeCell;
 
 
-    var startCell = value.document.getClosest(anchorKey, function (node) {
-        return node.type === typeCell;
-    });
-    var endCell = value.document.getClosest(focusKey, function (node) {
-        return node.type === typeCell;
-    });
+    var startCell = getClosest(document, anchorKey, typeCell);
+    var endCell = getClosest(document, focusKey, typeCell);
 
     // Only handle events in cells
     if (!startCell || !endCell) {
@@ -38,12 +39,8 @@ function isSelectionInTable(opts, value) {
     }
     // Not the same cell, look into ancestor chain:
 
-    var startRow = value.document.getClosest(anchorKey, function (node) {
-        return node.type === typeRow;
-    });
-    var endRow = value.document.getClosest(focusKey, function (node) {
-        return node.type === typeRow;
-    });
+    var startRow = getClosest(document, anchorKey, typeRow);
+    var endRow = getClosest(document, focusKey, typeRow);
 
     // Check for same table row
     if (startRow === endRow) {
@@ -51,12 +48,8 @@ function isSelectionInTable(opts, value) {
     }
     // Different rows
 
-    var startTable = value.document.getClosest(startRow, function (node) {
-        return node.type === typeTable;
-    });
-    var endTable = value.document.getClosest(endRow, function (node) {
-        return node.type === typeTable;
-    });
+    var startTable = getClosest(document, anchorKey, typeTable);
+    var endTable = getClosest(document, focusKey, typeTable);
 
     // Check for same table
     return startTable === endTable;

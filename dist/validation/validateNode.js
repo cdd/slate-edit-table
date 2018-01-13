@@ -75,7 +75,9 @@ function noBlocksWithinCell(opts) {
         normalize: function normalize(change, node, nestedBlocks) {
             nestedBlocks.forEach(function (block) {
                 return block.nodes.forEach(function (grandChild) {
-                    change.unwrapNodeByKey(grandChild.key, { normalize: false });
+                    change.unwrapNodeByKey(grandChild.key, {
+                        normalize: false
+                    });
                 });
             });
 
