@@ -19,7 +19,7 @@ document:
                 textAlign: 100
               nodes:
                 - object: text
-                  ranges:
+                  leaves:
                     - text: "Col 0, Row 0"
             - object: block
               type: table_cell
@@ -27,7 +27,7 @@ document:
                 textAlign: -10
               nodes:
                 - object: text
-                  ranges:
+                  leaves:
                     - text: "Col 1, Row 0"
         - object: block
           type: table_row
@@ -38,7 +38,7 @@ document:
                 textAlign: 100
               nodes:
                 - object: text
-                  ranges:
+                  leaves:
                     - text: "Col 0, Row 1"
             - object: block
               type: table_cell
@@ -46,7 +46,7 @@ document:
                 textAlign: -10
               nodes:
                 - object: text
-                  ranges:
+                  leaves:
                     - text: "Col 1, Row 1"
         - object: block
           type: table_row
@@ -57,7 +57,7 @@ document:
                 textAlign: 100
               nodes:
                 - object: text
-                  ranges:
+                  leaves:
                     - text: "Col 0, Row 2"
             - object: block
               type: table_cell
@@ -65,5 +65,5 @@ document:
                 textAlign: -10
               nodes:
                 - object: text
-                  ranges:
+                  leaves:
                     - text: "Col 1, Row 2"

@@ -4,7 +4,7 @@ document:
       type: paragraph
       nodes:
         - object: text
-          ranges:
+          leaves:
             - text: "Before"
     - object: block
       type: table
@@ -25,7 +25,7 @@ document:
                 textAlign: left
               nodes:
                 - object: text
-                  ranges:
+                  leaves:
                     - text: "A-0"
             - object: block
               type: table_cell
@@ -33,7 +33,7 @@ document:
                 textAlign: left
               nodes:
                 - object: text
-                  ranges:
+                  leaves:
                     - text: "A-1"
         - object: block
           type: table_row
@@ -44,7 +44,7 @@ document:
                 textAlign: left
               nodes:
                 - object: text
-                  ranges:
+                  leaves:
                     - text: "B-0"
             - object: block
               type: table_cell
@@ -52,5 +52,5 @@ document:
                 textAlign: left
               nodes:
                 - object: text
-                  ranges:
+                  leaves:
                     - text: "B-1"

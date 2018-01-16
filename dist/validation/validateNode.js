@@ -18,7 +18,7 @@ var _utils = require('../utils');
 
 // Old format for Slate rules
 function validateNode(opts) {
-    var rules = [noBlocksWithinCell(opts), cellsWithinTable(opts), rowsWithinTable(opts), tablesContainOnlyRows(opts), rowsContainRequiredColumns(opts), tableContainAlignData(opts), tableContainWidthsData(opts), tableDataHasValidWidths(opts)];
+    var rules = [noCellsWithinCell(opts), cellsWithinTable(opts), rowsWithinTable(opts), tablesContainOnlyRows(opts), rowsContainRequiredColumns(opts), tableContainAlignData(opts), tableContainWidthsData(opts), tableDataHasValidWidths(opts)];
     var validators = rules.map(toValidateNode);
 
     return function validateTableNode(node) {
@@ -54,7 +54,7 @@ function toValidateNode(rule) {
  * Rule to enforce cells only contain inlines or text.
  * It unwrap blocks in cell blocks
  */
-function noBlocksWithinCell(opts) {
+function noCellsWithinCell(opts) {
     return {
         match: function match(node) {
             return node.object == 'block' && node.type == opts.typeCell;
@@ -64,7 +64,7 @@ function noBlocksWithinCell(opts) {
         // Find nested blocks
         validate: function validate(node) {
             var nestedBlocks = node.nodes.filter(function (child) {
-                return child.object === 'block';
+                return child.object === 'block' && child.type == opts.typeCell;
             });
 
             return nestedBlocks.size > 0 ? nestedBlocks : null;

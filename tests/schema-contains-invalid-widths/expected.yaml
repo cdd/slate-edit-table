@@ -19,19 +19,19 @@ nodes:
             type: table_cell
             nodes:
               - object: text
-                ranges:
+                leaves:
                   - text: "Col 0, Row 0"
           - object: block
             type: table_cell
             nodes:
               - object: text
-                ranges:
+                leaves:
                   - text: "Col 1, Row 0"
           - object: block
             type: table_cell
             nodes:
               - object: text
-                ranges:
+                leaves:
                   - text: "Col 2, Row 0"
       - object: block
         type: table_row
@@ -40,19 +40,19 @@ nodes:
             type: table_cell
             nodes:
               - object: text
-                ranges:
+                leaves:
                   - text: "Col 0, Row 1"
           - object: block
             type: table_cell
             nodes:
               - object: text
-                ranges:
+                leaves:
                   - text: "Col 1, Row 1"
           - object: block
             type: table_cell
             nodes:
               - object: text
-                ranges:
+                leaves:
                   - text: "Col 2, Row 1"
       - object: block
         type: table_row
@@ -61,17 +61,17 @@ nodes:
             type: table_cell
             nodes:
               - object: text
-                ranges:
+                leaves:
                   - text: "Col 0, Row 2"
           - object: block
             type: table_cell
             nodes:
               - object: text
-                ranges:
+                leaves:
                   - text: "Col 1, Row 2"
           - object: block
             type: table_cell
             nodes:
               - object: text
-                ranges:
+                leaves:
                   - text: "Col 2, Row 2"

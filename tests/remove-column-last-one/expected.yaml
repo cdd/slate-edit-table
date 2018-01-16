@@ -16,7 +16,7 @@ document:
               type: table_cell
               nodes:
                 - object: text
-                  ranges:
+                  leaves:
                     - text: ""
         - object: block
           type: table_row
@@ -25,7 +25,7 @@ document:
               type: table_cell
               nodes:
                 - object: text
-                  ranges:
+                  leaves:
                     - text: ""
         - object: block
           type: table_row
@@ -34,5 +34,5 @@ document:
               type: table_cell
               nodes:
                 - object: text
-                  ranges:
+                  leaves:
                     - text: ""

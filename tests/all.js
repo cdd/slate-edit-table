@@ -30,7 +30,6 @@ describe('slate-edit-table', () => {
             const expectedPath = path.resolve(dir, 'expected.yaml');
             const expected =
                 fs.existsSync(expectedPath) && readMetadata.sync(expectedPath);
-
             // eslint-disable-next-line
             const runChange = require(path.resolve(dir, 'change.js')).default;
 

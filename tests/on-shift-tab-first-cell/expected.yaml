@@ -10,7 +10,7 @@ document:
               type: table_cell
               nodes:
                 - object: text
-                  ranges:
+                  leaves:
                     - text: "Col 0, Row 0"
             - object: block
               type: table_cell
