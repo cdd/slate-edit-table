@@ -971,26 +971,12 @@ var _getAdjustedRow2 = _interopRequireDefault(_getAdjustedRow);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
- * Sets column width for a given column
+ * Sets column width for a table
  */
 function setTableWidths(opts, change, table, widths) {
-    var nextTable = table.set('nodes', table.nodes.map(function (row) {
-        return (0, _getAdjustedRow2.default)(row, widths);
-    })).setIn(['data', 'widths'], widths);
+    var data = table.data.set('widths', widths);
 
-    // To restore selection, the following code function like change.replaceNodeByKey(table.key, nextTable).focus();
-    change.setNodeByKey(table.key, { data: nextTable.data });
-    table.nodes.forEach(function (row, rowIndex) {
-        row.nodes.forEach(function (cell, cellIndex) {
-            var nextCell = nextTable.nodes.get(rowIndex).nodes.get(cellIndex);
-            if (nextCell === cell) {
-                return cellIndex;
-            }
-            change.setNodeByKey(cell.key, { data: nextCell.data });
-            return cellIndex;
-        });
-        return rowIndex;
-    });
+    change.setNodeByKey(table.key, { data: data });
 
     return change;
 }
@@ -2037,7 +2023,14 @@ var _utils = require('../utils');
 
 // Old format for Slate rules
 function validateNode(opts) {
-    var rules = [noCellsWithinCell(opts), cellsWithinTable(opts), rowsWithinTable(opts), tablesContainOnlyRows(opts), rowsContainRequiredColumns(opts), tableContainAlignData(opts), tableContainWidthsData(opts), tableDataHasValidWidths(opts)];
+    var rules = [
+    //noCellsWithinCell(opts),
+    //cellsWithinTable(opts),
+    //rowsWithinTable(opts),
+    //tablesContainOnlyRows(opts),
+    //rowsContainRequiredColumns(opts),
+    //tableContainAlignData(opts),
+    tableContainWidthsData(opts), tableDataHasValidWidths(opts)];
     var validators = rules.map(toValidateNode);
 
     return function validateTableNode(node) {
@@ -46315,6 +46308,7 @@ var Document = function (_Record) {
           _object$nodes = object.nodes,
           nodes = _object$nodes === undefined ? [] : _object$nodes;
 
+
       var document = new Document({
         key: key,
         data: new _immutable.Map(data),
@@ -46370,7 +46364,6 @@ Object.getOwnPropertyNames(_node2.default.prototype).forEach(function (method) {
  */
 
 exports.default = Document;
-
 },{"../constants/model-types":299,"../utils/generate-key":321,"./block":302,"./inline":308,"./node":311,"immutable":63,"is-plain-object":67,"slate-dev-logger":257}],307:[function(require,module,exports){
 'use strict';
 
@@ -49810,7 +49803,6 @@ function assertKey(arg) {
  */
 
 exports.default = Node;
-
 },{"../utils/generate-key":321,"../utils/is-index-in-range":322,"../utils/memoize":323,"./block":302,"./data":305,"./document":306,"./inline":308,"./range":313,"./text":316,"direction":40,"immutable":63,"is-plain-object":67,"slate-dev-logger":257}],312:[function(require,module,exports){
 'use strict';
 
@@ -52973,7 +52965,6 @@ Text.prototype[_modelTypes2.default.TEXT] = true;
  */
 
 exports.default = Text;
-
 },{"../constants/model-types":299,"../utils/generate-key":321,"../utils/memoize":323,"./character":304,"./leaf":309,"./mark":310,"immutable":63,"is-plain-object":67,"slate-dev-logger":257}],317:[function(require,module,exports){
 'use strict';
 
@@ -53847,7 +53838,6 @@ Value.prototype[_modelTypes2.default.VALUE] = true;
  */
 
 exports.default = Value;
-
 },{"../constants/model-types":299,"./change":303,"./data":305,"./document":306,"./history":307,"./range":313,"./schema":314,"immutable":63,"is-plain-object":67,"slate-dev-logger":257}],318:[function(require,module,exports){
 'use strict';
 
