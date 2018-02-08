@@ -3,9 +3,6 @@ document:
     - object: block
       type: table
       data:
-        presetAlign:
-            - left
-            - left
         widths:
             - 100
             - 5

@@ -16,23 +16,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * Sets column width for a given column
  */
 function setTableWidths(opts, change, table, widths) {
-    var nextTable = table.set('nodes', table.nodes.map(function (row) {
-        return (0, _getAdjustedRow2.default)(row, widths);
-    })).setIn(['data', 'widths'], widths);
+    var data = table.data.set('widths', widths);
 
-    // To restore selection, the following code function like change.replaceNodeByKey(table.key, nextTable).focus();
-    change.setNodeByKey(table.key, { data: nextTable.data });
-    table.nodes.forEach(function (row, rowIndex) {
-        row.nodes.forEach(function (cell, cellIndex) {
-            var nextCell = nextTable.nodes.get(rowIndex).nodes.get(cellIndex);
-            if (nextCell === cell) {
-                return cellIndex;
-            }
-            change.setNodeByKey(cell.key, { data: nextCell.data });
-            return cellIndex;
-        });
-        return rowIndex;
-    });
+    change.setNodeByKey(table.key, { data: data });
 
     return change;
 }

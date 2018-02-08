@@ -18,7 +18,14 @@ var _utils = require('../utils');
 
 // Old format for Slate rules
 function validateNode(opts) {
-    var rules = [noCellsWithinCell(opts), cellsWithinTable(opts), rowsWithinTable(opts), tablesContainOnlyRows(opts), rowsContainRequiredColumns(opts), tableContainAlignData(opts), tableContainWidthsData(opts), tableDataHasValidWidths(opts)];
+    var rules = [
+    //noCellsWithinCell(opts),
+    //cellsWithinTable(opts),
+    //rowsWithinTable(opts),
+    //tablesContainOnlyRows(opts),
+    //rowsContainRequiredColumns(opts),
+    //tableContainAlignData(opts),
+    tableContainWidthsData(opts), tableDataHasValidWidths(opts)];
     var validators = rules.map(toValidateNode);
 
     return function validateTableNode(node) {
