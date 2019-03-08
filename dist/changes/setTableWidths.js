@@ -13,7 +13,7 @@ var _getAdjustedRow2 = _interopRequireDefault(_getAdjustedRow);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
- * Sets column width for a table
+ * Sets column width for a given column
  */
 function setTableWidths(opts, change, table, widths) {
     var data = table.data.set('widths', widths);
