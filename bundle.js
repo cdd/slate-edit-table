@@ -971,12 +971,26 @@ var _getAdjustedRow2 = _interopRequireDefault(_getAdjustedRow);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
- * Sets column width for a table
+ * Sets column width for a given column
  */
 function setTableWidths(opts, change, table, widths) {
-    var data = table.data.set('widths', widths);
+    var nextTable = table.set('nodes', table.nodes.map(function (row) {
+        return (0, _getAdjustedRow2.default)(row, widths);
+    })).setIn(['data', 'widths'], widths);
 
-    change.setNodeByKey(table.key, { data: data });
+    // To restore selection, the following code function like change.replaceNodeByKey(table.key, nextTable).focus();
+    change.setNodeByKey(table.key, { data: nextTable.data });
+    table.nodes.forEach(function (row, rowIndex) {
+        row.nodes.forEach(function (cell, cellIndex) {
+            var nextCell = nextTable.nodes.get(rowIndex).nodes.get(cellIndex);
+            if (nextCell === cell) {
+                return cellIndex;
+            }
+            change.setNodeByKey(cell.key, { data: nextCell.data });
+            return cellIndex;
+        });
+        return rowIndex;
+    });
 
     return change;
 }
@@ -2023,7 +2037,12 @@ var _utils = require('../utils');
 
 // Old format for Slate rules
 function validateNode(opts) {
-    var rules = [noCellsWithinCell(opts), cellsWithinTable(opts), rowsWithinTable(opts), tablesContainOnlyRows(opts), rowsContainRequiredColumns(opts),
+    var rules = [
+    //noCellsWithinCell(opts),
+    //cellsWithinTable(opts),
+    //rowsWithinTable(opts),
+    //tablesContainOnlyRows(opts),
+    //rowsContainRequiredColumns(opts),
     //tableContainAlignData(opts),
     tableContainWidthsData(opts), tableDataHasValidWidths(opts)];
     var validators = rules.map(toValidateNode);
